@@ -34,7 +34,7 @@ export const putPrivada = async (req, res) => {
         })
     } catch (error) {
         return res.status(500).json({
-            message: 'Error al actualizar'
+            message: 'Error al actualizar' + error
         })
     }    
 }
