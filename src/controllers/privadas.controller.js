@@ -20,7 +20,7 @@ export const setPrivada = async (req, res) => {
         })
     } catch (error) {
         return res.status(500).json({
-            message: 'Error al crear la privada'
+            message: 'Error al crear la privada ' + error
         })
     }    
 }
@@ -28,13 +28,13 @@ export const setPrivada = async (req, res) => {
 export const putPrivada = async (req, res) => {
     try {
         const {id, nombre, activo} = req.body
-        await pool.query('UPDATE PRIVADA SET nombre =?, activo =? WHERE id = ?', [nombre, activo, id])
+        await pool.query('UPDATE privada SET nombre =?, activo =? WHERE id = ?', [nombre, activo, id])
         res.send({
             success : true
         })
     } catch (error) {
         return res.status(500).json({
-            message: 'Error al actualizar' + error
+            message: 'Error al actualizar ' + error
         })
     }    
 }
