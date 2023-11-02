@@ -4,7 +4,9 @@ export const getUsuario = async (req, res) => {
     try {
         const {telefono, password} = req.body
         const [result] = await pool.query('SELECT u.id idusuario, u.nombre nombreusuario, u.esprimeravez, u.esadministrador, u.esseguridad, u.essuperadmin, u.esresidente, u.idprivada, p.nombre nombreprivada, u.casa FROM privada p INNER JOIN usuario u ON p.id = u.id AND p.activo = 1 AND u.telefono = ? AND u.password = ? AND u.esmoroso = 0', [telefono, password])
-        if(result){
+        
+        print(result)
+        if(!result){
             return res.status(401).json(
                 {
                     message : 'Datos incorrectos'
