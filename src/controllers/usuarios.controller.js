@@ -9,7 +9,7 @@ export const getUsuario = async (req, res) => {
                 message: 'Datos incorrectos'
             })
         }       
-        res.json(result)
+        res.json(result[0])
     } catch (error) {
         return res.status(500).json({
             message: 'Error al loguearse'
