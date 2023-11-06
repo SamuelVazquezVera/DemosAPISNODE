@@ -11,7 +11,7 @@ export const getUsuario = async (req, res) => {
             })
         }       
         res.status(200).json({
-            super: true,
+            success: true,
             data: result[0]
         })
     } catch (error) {
