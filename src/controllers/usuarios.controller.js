@@ -53,7 +53,7 @@ export const putUsuario = async (req, res) => {
 export const putUsuarioPass = async (req, res) => {
     try {
         const {password, id} = req.body
-        await pool.query('UPDATE usuario SET password = ? WHERE id = ?', [password, id])
+        await pool.query('UPDATE usuario SET password = ?, esprimeravez = 0 WHERE id = ?', [password, id])
         res.send({
             success : true
         }) 
