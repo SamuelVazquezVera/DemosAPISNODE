@@ -49,6 +49,21 @@ export const putUsuario = async (req, res) => {
         })
     }    
 }
+
+export const putUsuarioPass = async (req, res) => {
+    try {
+        const {password, id} = req.body
+        await pool.query('UPDATE usuario SET password = ? WHERE id = ?', [password, id])
+        res.send({
+            success : true
+        }) 
+    } catch (error) {
+        return res.status(500).json({
+            message: 'Error al actualizar usuario'
+        })
+    }    
+}
+
 export const deleteUsuario = async (req, res) => {
     try {
         const {id} = req.body
